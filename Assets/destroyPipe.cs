@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class jump : MonoBehaviour
+public class destroyPipe : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] float speed = 4f;
+        private float destroyPos = -50;
     void Start()
     {
         
@@ -14,10 +14,12 @@ public class jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 1f, 0f) * speed;
 
+        if(transform.position.x <destroyPos)
+        {
+
+            Destroy(this.gameObject);  
         }
+        
     }
 }
