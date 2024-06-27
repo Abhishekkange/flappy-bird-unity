@@ -7,10 +7,11 @@ using UnityEngine;
 public class collisionDetector : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject gameOverScreen;
 
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -24,9 +25,9 @@ public class collisionDetector : MonoBehaviour
         
         if(collision.collider.tag == "collider")
         {
-
-            Debug.Log("GAME OVER");
+            gameOverScreen.SetActive(true);
             Destroy(this.gameObject);
+            
         }
 
 

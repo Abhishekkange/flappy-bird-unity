@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - collider
+  - score
+  - bird
+  - scorehandler
+  - gameover
   layers:
   - Default
   - TransparentFX

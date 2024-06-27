@@ -7,10 +7,17 @@ public class spawnpipe : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject pipe;
     [SerializeField] int delay;
-    private float timer = 0;
+    public float heightoffset = 2f;
+
+    public float lowerLimit, upperLimit;
+    private float timer = 2f;
     void Start()
     {
         
+        lowerLimit = transform.position.y - heightoffset;
+        upperLimit = transform.position.y + heightoffset;
+
+
     }
 
     // Update is called once per frame
@@ -33,7 +40,9 @@ public class spawnpipe : MonoBehaviour
     void spawnPipe()
     {
 
-        Instantiate(pipe,transform.position,transform.rotation);
+        
+        float abc = Random.Range(lowerLimit, upperLimit);
+        Instantiate(pipe,new Vector3(0f,abc,0f),transform.rotation);
 
     }
 }

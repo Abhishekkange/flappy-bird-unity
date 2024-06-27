@@ -2,35 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class updateScore : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
     private int score = 0;
-    void Start()
+    public GameObject gameOverScreen;
+
+    private void Start()
     {
-        
+        gameOverScreen.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag =="bird")
-        {
-            increaseScore();
 
-        }
-        
-    }
-    void increaseScore()
+    public void increaseScore()
     {
+
+        Debug.Log("increase score function is running");
         score++;
         scoreText.text = score.ToString();
+        Debug.Log(score);
+
+
+    }
+    public void restartGame()
+    {
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOverScreen.SetActive(false);
+
+
+
 
 
     }
