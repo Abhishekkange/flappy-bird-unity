@@ -8,6 +8,8 @@ public class collisionDetector : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject gameOverScreen;
+    public AudioSource audioSource;
+    public AudioSource bgmSource;
 
     void Start()
     {
@@ -25,6 +27,9 @@ public class collisionDetector : MonoBehaviour
         
         if(collision.collider.tag == "collider")
         {
+            audioSource.Play();
+            bgmSource.Stop();
+
             gameOverScreen.SetActive(true);
             Destroy(this.gameObject);
             
